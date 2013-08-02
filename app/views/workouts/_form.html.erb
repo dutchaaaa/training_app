@@ -1,0 +1,20 @@
+<%= form_for @workout do |f| %>
+  <%= f.error_messages %>
+  <div>
+    <%= f.label :major_exercise %>
+    <%= f.text_field :major_exercise %>
+  </div>
+
+ <div>
+    <%= f.label :week_id %>
+    <%= f.text_field :week_id %>
+  </div>    
+
+  <div>
+    <%= f.label :rep_record %>
+    <%= f.text_field :rep_record %>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>

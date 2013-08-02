@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  bench: 1
+  squat: 1
+  deadlift: 1
+  overhead_press: 1
+
+two:
+  name: MyString
+  email: MyString
+  bench: 1
+  squat: 1
+  deadlift: 1
+  overhead_press: 1

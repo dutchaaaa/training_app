@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  major_exercise: MyString
+  rep_record: 1
+  user_id: 
+  week_id: 
+
+two:
+  major_exercise: MyString
+  rep_record: 1
+  user_id: 
+  week_id: 

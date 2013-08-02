@@ -1,0 +1,48 @@
+<%= form_for @user do |f| %>
+<% f.error_messages %>
+
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :email  %>
+  <%= f.email_field :email %>
+</div>
+
+ <div>
+   <%= f.label :password %>
+   <%= f.password_field :password %>
+ </div>
+
+<div>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<p>Enter your One Rep Max for the following: </p>
+
+<div>
+  <%= f.label :bench %>
+  <%= f.text_field :bench %>
+</div>
+  
+  <div>
+    <%= f.label :squat %>
+    <%= f.text_field :squat %>
+  </div>
+
+<div>
+  <%= f.label :deadlift %>
+  <%= f.text_field :deadlift %>
+</div>
+
+<div>
+  <%= f.label :overhead_press %>
+  <%= f.text_field :overhead_press %>
+</div>
+
+<%= f.submit %>
+
+<% end %>

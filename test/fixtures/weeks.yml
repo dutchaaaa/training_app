@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  percent_of_max1: 9.99
+  percent_of_max2: 9.99
+  percent_of_max3: 9.99
+  reps1: 1
+  reps2: 1
+  reps3: 1
+
+two:
+  percent_of_max1: 9.99
+  percent_of_max2: 9.99
+  percent_of_max3: 9.99
+  reps1: 1
+  reps2: 1
+  reps3: 1

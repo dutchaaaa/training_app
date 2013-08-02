@@ -1,0 +1,26 @@
+<h1>My User Info</h1>
+
+<%= @user.name %>
+
+<div>
+  <p>My Max Bench Press</p>
+  <%= @user.bench %>
+</div>
+
+<div>
+  <p>My Max Squat</p>
+  <%= @user.squat %>
+</div>
+
+<div>
+  <p>My Max Deadlift</p>
+  <%= @user.deadlift %>
+</div>
+
+<div>
+  <p>My Max Overhead Press</p>
+  <%= @user.overhead_press %>
+</div>
+
+<%= link_to "Edit my Max Lifts", edit_user_path(@user) %>
+<%= button_to "Log out", logout_path %>

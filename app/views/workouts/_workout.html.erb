@@ -1,0 +1,19 @@
+<h3>Today's Workout</h3>
+
+<p>Week <%= @current_week.id %> </p>
+
+<h3>Lifts for this Workout</h3>
+
+<p>Exercise: <%= @workouts.major_exercise %></p>
+
+<p>
+  <%= (@max_weight * @current_week.percent_of_max1).to_i %> X <%= @current_week.reps1 %>
+ </p>
+
+ <p>
+  <%= (@max_weight *  @current_week.percent_of_max2).to_i%> X <%= @current_week.reps2 %>
+ </p>
+
+ <p>
+  <%= (@max_weight *  @current_week.percent_of_max3).to_i%> X <%= @current_week.reps3 %>
+ </p>

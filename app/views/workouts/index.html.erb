@@ -1,0 +1,13 @@
+
+<div class='span8'>
+  <%= render 'calendar' %>
+</div>
+
+<div class='span4'>
+  <% if @workouts && @current_week %>
+    <%= render 'workout' %>
+  <% else %>
+    <p>There are no workouts on this day, would you like to add one?</p>
+    <%= link_to "Add Workout", new_workout_path %>
+  <% end %>
+</div>
