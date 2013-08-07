@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  reps1: 1
+  reps2: 1
+  reps3: 1
+  weight1: 1
+  weight2: 1
+  weight3: 1
+  workout_id: 
+
+two:
+  name: MyString
+  reps1: 1
+  reps2: 1
+  reps3: 1
+  weight1: 1
+  weight2: 1
+  weight3: 1
+  workout_id: 

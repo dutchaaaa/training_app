@@ -1,4 +1,6 @@
 TrainingApp::Application.routes.draw do
+  resources :assistance_exercises
+
   resources :weeks
 
   resources :workouts

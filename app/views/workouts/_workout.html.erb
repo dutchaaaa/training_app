@@ -4,16 +4,37 @@
 
 <h3>Lifts for this Workout</h3>
 
-<p>Exercise: <%= @workouts.major_exercise %></p>
+<p>Exercise: <%= @workouts.major_exercise.capitalize %></p>
 
 <p>
   <%= (@max_weight * @current_week.percent_of_max1).to_i %> X <%= @current_week.reps1 %>
  </p>
 
  <p>
-  <%= (@max_weight *  @current_week.percent_of_max2).to_i%> X <%= @current_week.reps2 %>
+  <%= (@max_weight * @current_week.percent_of_max2).to_i%> X <%= @current_week.reps2 %>
  </p>
 
  <p>
-  <%= (@max_weight *  @current_week.percent_of_max3).to_i%> X <%= @current_week.reps3 %>
+  <%= (@max_weight * @current_week.percent_of_max3).to_i%> X <%= @current_week.reps3 %>
  </p>
+
+ <p>
+  Rep Record for this Workout:
+  <%= @rep_record %>
+ </p>
+ <div>
+   <%= link_to edit_workout_path(@workouts) %>
+ </div>
+
+<% if @assistance_exercises %>
+ <% @assistance_exercises.each do |exercise| %>
+  <div><%= exercise.name.capitalize %></div>
+  <div><%= exercise.reps1 %> @ <%= exercise.weight1 %>lbs</div>
+  <div><%= exercise.reps2 %> @ <%= exercise.weight2 %>lbs</div>
+  <div><%= exercise.reps3 %> @ <%= exercise.weight3 %>lbs</div>
+  <div>
+  <%= link_to "Edit this Exercise",edit_assistance_exercise_path(exercise) %>
+</div>
+
+  <% end %>
+<% end %>

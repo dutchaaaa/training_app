@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130802214603) do
+ActiveRecord::Schema.define(version: 20130807133946) do
+
+  create_table "assistance_exercises", force: true do |t|
+    t.string   "name"
+    t.integer  "reps1"
+    t.integer  "reps2"
+    t.integer  "reps3"
+    t.integer  "weight1"
+    t.integer  "weight2"
+    t.integer  "weight3"
+    t.integer  "workout_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assistance_exercises", ["workout_id"], name: "index_assistance_exercises_on_workout_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -15,6 +15,11 @@ class WorkoutsController < ApplicationController
     @workout_month = Workout.where(created_at: @date.beginning_of_month..@date.end_of_month).map do |d|
       d.created_at.to_date
     end
+    if @workouts.rep_record
+      @rep_record = @workouts.rep_record
+    end
+    session[:workout_id] = @workouts.id
+    @assistance_exercises = AssistanceExercise.where(workout_id: session[:workout_id])
   end
 
   def new
