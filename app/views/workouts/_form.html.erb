@@ -1,4 +1,4 @@
-<%= form_for @workout do |f| %>
+<%= form_for @workout, remote: true do |f| %>
   <%= f.error_messages %>
   <div>
     <%= f.label :major_exercise %>

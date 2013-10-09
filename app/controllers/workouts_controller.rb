@@ -11,20 +11,23 @@ class WorkoutsController < ApplicationController
     if @workouts
       @max_weight = @current_user[(@workouts.major_exercise).to_sym] * 0.95
       @current_week = Week.find(@workouts.week_id)
+      session[:workout_id] = @workouts.id
+      @assistance_exercises = AssistanceExercise.where(workout_id: session[:workout_id])
+      if @workouts.rep_record
+        @rep_record = @workouts.rep_record
+      end
     end
     @workout_month = Workout.where(created_at: @date.beginning_of_month..@date.end_of_month).map do |d|
       d.created_at.to_date
     end
-    if @workouts.rep_record
-      @rep_record = @workouts.rep_record
-    end
-    session[:workout_id] = @workouts.id
-    @assistance_exercises = AssistanceExercise.where(workout_id: session[:workout_id])
+    
   end
 
   def new
     @workout = Workout.new
-    
+    respond_to do |format|
+      format.js { render :index }
+    end
   end
 
   def show
@@ -35,9 +38,13 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new workout_params
     @workout.user_id = session[:user_id]
     if @workout.save
-    redirect_to workouts_path
+    respond_to do |format|
+      format.js 
+    end
     else 
-      render :new
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

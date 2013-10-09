@@ -11,6 +11,8 @@ TrainingApp::Application.routes.draw do
   post '/login', to: 'login#create_session'
   post 'logout', to: 'login#end_session'
 
+
+  get "foo", to: Proc.new{|env| [200, {"" => ""}, ["hello from a proc"]] }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

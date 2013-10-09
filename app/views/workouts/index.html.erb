@@ -8,7 +8,9 @@
     <%= render 'workout' %>
     <%= link_to "Create Assistance Exercises for this Workout", new_assistance_exercise_path %>
   <% else %>
+    <div id="new_workout">
     <p>There are no workouts on this day, would you like to add one?</p>
-    <%= link_to "Add Workout", new_workout_path %>
+      <%= link_to "Add Workout", new_workout_path, remote: true %>
+    </div>
   <% end %>
 </div>

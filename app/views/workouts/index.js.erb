@@ -1,0 +1,8 @@
+$('#new_workout').after('<%= j render partial: "new" %>')
+
+var hideWorkoutText = function() {
+  if (document.getElementById("workout_form") != null) {
+    document.getElementById("new_workout").style.display = 'none';
+  }
+}
+hideWorkoutText(); 
