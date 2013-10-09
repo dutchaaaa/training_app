@@ -1,0 +1,13 @@
+$('#workout_form').replaceWith("<h2>You've created a new Workout for this date!</h2>");
+
+
+var getDate = function() {
+  var date = window.location.search.substring(1);
+  date = date.substring(5,(date.length));
+  console.log(date)
+  return date;
+}
+var myDate = getDate();
+
+
+$('#' + myDate).children().addClass("streak");

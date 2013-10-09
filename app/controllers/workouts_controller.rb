@@ -3,11 +3,11 @@ class WorkoutsController < ApplicationController
 
   def index
     if params[:date]
-      @date = params[:date].to_date.to_time_in_current_zone
+      @date = params[:date].to_date.in_time_zone
     else
       @date = Time.zone.now
     end
-    @workouts = Workout.find_by(created_at: @date.beginning_of_day..@date.end_of_day)
+    @workouts = Workout.find_by(date: @date.beginning_of_day..@date.end_of_day)
     if @workouts
       @max_weight = @current_user[(@workouts.major_exercise).to_sym] * 0.95
       @current_week = Week.find(@workouts.week_id)
@@ -17,8 +17,8 @@ class WorkoutsController < ApplicationController
         @rep_record = @workouts.rep_record
       end
     end
-    @workout_month = Workout.where(created_at: @date.beginning_of_month..@date.end_of_month).map do |d|
-      d.created_at.to_date
+    @workout_month = Workout.where(date: @date.beginning_of_month..@date.end_of_month).map do |d|
+      d.date.to_date
     end
     
   end
@@ -35,15 +35,16 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.new workout_params
+    @workout = Workout.new(workout_params)
     @workout.user_id = session[:user_id]
+    @workout.date = params[:date]
     if @workout.save
     respond_to do |format|
-      format.js 
+      format.js { :create }
     end
     else 
       respond_to do |format|
-        format.js
+        format.js { :index }
       end
     end
   end
@@ -70,6 +71,6 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:major_exercise, :rep_record, :week_id)
+    params.require(:workout).permit(:major_exercise, :rep_record, :week_id, :date)
   end
 end

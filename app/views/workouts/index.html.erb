@@ -10,7 +10,7 @@
   <% else %>
     <div id="new_workout">
     <p>There are no workouts on this day, would you like to add one?</p>
-      <%= link_to "Add Workout", new_workout_path, remote: true %>
+      <%= link_to "Add Workout", new_workout_path, data: { date: params[:date] }, remote: true %>
     </div>
   <% end %>
 </div>

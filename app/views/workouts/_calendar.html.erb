@@ -35,8 +35,8 @@
   <% if date.monday? %>
     <tr class="week"></div>
   <% end %>
-  <td class="day">
-    <%= link_to workouts_path(date: date), class: "link" do  %>
+  <td class="day" id=<%= date %>>
+    <%= link_to workouts_path(date: date), class: "link" do %>
       <%= date.day %>
       <% if @workout_month.include?(date) %>
       <div class="streak"></div>

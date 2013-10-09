@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130807133946) do
+ActiveRecord::Schema.define(version: 20131009141514) do
 
   create_table "assistance_exercises", force: true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130807133946) do
     t.integer  "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "date"
   end
 
   add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
